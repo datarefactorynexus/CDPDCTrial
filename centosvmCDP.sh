@@ -129,6 +129,7 @@ echo "-- Prepare CM database 'scm'"
 #systemctl restart postgresql
 
 ## PostgreSQL see: https://www.postgresql.org/download/linux/redhat/
+yum remove pgdg-redhat-repo-42.0-24.noarch
 yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum install -y postgresql96
 yum install -y postgresql96-server
