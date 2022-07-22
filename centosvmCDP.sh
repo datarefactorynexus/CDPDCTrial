@@ -136,7 +136,7 @@ yum install -y postgresql14-server
 pip install psycopg2==2.7.5 --ignore-installed
 
 echo 'LC_ALL="en_US.UTF-8"' >> /etc/locale.conf
-/usr/pgsql-14/bin/postgresql14-setup initdb
+/usr/pgsql-14/bin/postgresql-14-setup initdb
 
 cat /root/CDPDCTrial/conf/pg_hba.conf > /var/lib/pgsql/14/data/pg_hba.conf
 cat /root/CDPDCTrial/conf/postgresql.conf > /var/lib/pgsql/14/data/postgresql.conf
