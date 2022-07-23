@@ -27,9 +27,13 @@ sysctl vm.swappiness=1
 timedatectl set-timezone UTC
 
 echo "-- Install Java OpenJDK8 and other tools"
+yum update
+
 yum install -y java-1.8.0-openjdk-devel vim wget curl git bind-utils rng-tools
 yum install -y epel-release
 yum install -y python-pip
+rm -rf /usr/lib/python2.7/site-packages/certifi
+pip install certifi==2020.4.5.1
 
 cp /usr/lib/systemd/system/rngd.service /etc/systemd/system/
 systemctl daemon-reload
