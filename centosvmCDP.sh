@@ -198,13 +198,21 @@ echo "-- Now CM is started and the next step is to automate using the CM API"
 
 pip install cm_client
 
+echo "-- cm_client installed"
+
+echo "------------------------------------------------------"
+echo "------------------------------------------------------"
+echo "--sed create_cluster.py"
 sed -i "s/YourHostname/localhost.localdomain/g" ~/CDPDCTrial/scripts/create_cluster.py
+echo "--Finished sed create_cluster.py"
 
 mkdir /data
 mkdir /data/dfs
 chmod -R 777 /data
 
+echo "--Running create_cluster.py with cdpsandbox.json"
 python ~/CDPDCTrial/scripts/create_cluster.py ~/CDPDCTrial/conf/cdpsandbox.json
+echo "--Finished create_cluster.py with cdpsandbox.json "
 
 sudo usermod cloudera -G hadoop
 sudo -u hdfs hdfs dfs -mkdir /user/cloudera
@@ -212,3 +220,7 @@ sudo -u hdfs hdfs dfs -chown cloudera:hadoop /user/cloudera
 sudo -u hdfs hdfs dfs -mkdir /user/admin
 sudo -u hdfs hdfs dfs -chown admin:hadoop /user/admin
 sudo -u hdfs hdfs dfs -chmod -R 0755 /tmp
+
+echo "------------------------------------------------------"
+echo "------------------------------------------------------"
+echo "--FINISHED!!!!!"
