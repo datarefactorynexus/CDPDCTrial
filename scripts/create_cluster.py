@@ -77,8 +77,9 @@ mgmt_api.auto_assign_roles() # needed?
 mgmt_api.auto_configure()    # needed?
 mgmt_api.setup_cms(body=api_service)
 cmd = mgmt_api.start_command()
+print("---- Calling wait function")
 wait(cmd)
-
+print("---- Finished wait function")
 
 # create the cluster using the template
 with open(sys.argv[1]) as f:
@@ -87,5 +88,7 @@ with open(sys.argv[1]) as f:
 Response = namedtuple("Response", "data")
 dst_cluster_template=api_client.deserialize(response=Response(json_str),response_type=cm_client.ApiClusterTemplate)
 cmd = cm_api.import_cluster_template(add_repositories=True, body=dst_cluster_template)
+print("---- Calling wait function 2nd time")
 wait(cmd)
+print("---- create_cluster.py Finished!!!!")
 
